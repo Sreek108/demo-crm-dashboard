@@ -92,7 +92,14 @@ st.markdown("""
     }
 
     /* Sticky top navbar wrapper */
-    .navbar-holder { position: sticky; top: 0; z-index: 1000; background: #ffffff; padding: 6px 0 10px; }
+    .navbar-holder {
+        position: sticky;
+        top: 14px;              /* move the sticky bar down; adjust 12–24px as needed */
+        margin-top: 6px;        /* adds spacing before the bar in normal flow */
+        z-index: 1000;
+        background: #ffffff;
+        padding: 6px 0 10px;
+    }
 
     /* Make radio look like pill tabs */
     #pill-nav [role="radiogroup"] { gap: 10px; flex-wrap: wrap; }

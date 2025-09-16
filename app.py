@@ -424,44 +424,71 @@ elif current_page == "agent_availability":
         f'<p><strong>Wellness Score:</strong> {burnout.get("wellness_score", 0)*100:.0f}%</p></div>', unsafe_allow_html=True)
 
 elif current_page == "conversion":
-    st.markdown('<h1 class="main-header">💵 AI Revenue Forecasting & Conversion Intelligence</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">💰 AI Revenue Forecasting & Conversion Intelligence</h1>', unsafe_allow_html=True)
     conv_ai = ai_insights.get('conversion', {})
+
+    # Revenue Forecasting
     revenue_forecast = conv_ai.get('revenue_forecasting', {})
     col1, col2, col3, col4 = st.columns(4)
-    with col1: st.metric("Pipeline Value", f"${revenue_forecast.get('total_pipeline_value', 0)/1000000:.2f}M")
-    with col2: st.metric("Next Quarter Forecast", f"${revenue_forecast.get('expected_revenue_next_quarter', 0)/1000:.0f}K", delta="AI Predicted")
-    with col3: st.metric("High Probability Revenue", f"${revenue_forecast.get('high_probability_revenue', 0)/1000:.0f}K")
-    with col4: st.metric("Next Month Conversions", conv_ai.get('predictive_insights', {}).get('next_month_conversions_forecast', 0))
+    with col1:
+        st.metric("Pipeline Value", f"${revenue_forecast.get('total_pipeline_value', 0)/1000000:.2f}M")
+    with col2:
+        st.metric("Next Quarter Forecast", f"${revenue_forecast.get('expected_revenue_next_quarter', 0)/1000:.0f}K", delta="AI Predicted")
+    with col3:
+        st.metric("High Probability Revenue", f"${revenue_forecast.get('high_probability_revenue', 0)/1000:.0f}K")
+    with col4:
+        st.metric("Next Month Conversions", conv_ai.get('predictive_insights', {}).get('next_month_conversions_forecast', 0))
+
+    # Optimization Opportunities
     conv_opt = conv_ai.get('conversion_optimization', {})
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(
-            '<div class="optimization-card"><h4>🎯 Conversion Optimization</h4>'
+            '<div class="optimization-card">'
+            '<h4>🎯 Conversion Optimization</h4>'
             f'<p><strong>Opportunities:</strong> {conv_opt.get("optimization_opportunities_count", 0)}</p>'
             f'<p><strong>Revenue at Risk:</strong> ${conv_opt.get("total_revenue_at_risk", 0)/1000:.0f}K</p>'
-            f'<p><strong>Potential Uplift:</strong> ${conv_opt.get("potential_revenue_uplift", 0)/1000:.0f}K</p></div>', unsafe_allow_html=True)
+            f'<p><strong>Potential Uplift:</strong> ${conv_opt.get("potential_revenue_uplift", 0)/1000:.0f}K</p>'
+            '</div>',
+            unsafe_allow_html=True
+        )
+
     with col2:
         st.markdown(
-            '<div class="prediction-card"><h4>⏱️ Time Intelligence</h4>'
+            '<div class="prediction-card">'
+            '<h4>⏱️ Time Intelligence</h4>'
             f'<p><strong>Avg Conversion Time:</strong> {conv_ai.get("time_to_conversion", {}).get("average_conversion_time", 0):.1f} days</p>'
             f'<p><strong>Fast Track Opportunities:</strong> {conv_ai.get("time_to_conversion", {}).get("fast_track_opportunities", 0)}</p>'
-            f'<p><strong>Stalled Deals:</strong> {conv_ai.get("time_to_conversion", {}).get("stalled_deals_needing_attention", 0)}</p></div>', unsafe_allow_html=True)
-    pred_insights = conv_ai.get('predictive_insights', {})
-    confidence_interval = pred_insights.get('revenue_confidence_interval', [0, 0])
+            f'<p><strong>Stalled Deals:</strong> {conv_ai.get("time_to_conversion", {}).get("stalled_deals_needing_attention", 0)}</p>'
+            '</div>',
+            unsafe_allow_html=True
+        )
 
-st.markdown(
-    '<div class="ai-insight-box">'
-    '<h4>🔮 Revenue Predictions & Market Intelligence</h4>'
-    f'<p><strong>Revenue Confidence Range:</strong> '
-    f'${float(confidence_interval)/1000:.0f}K - ${float(confidence_interval[25])/1000:.0f}K</p>'
-    f'<p><strong>Seasonal Adjustment:</strong> {pred_insights.get("seasonal_adjustment_factor", 1)*100:.0f}% expected increase</p>'
-    f'<p><strong>Market Trend Impact:</strong> +{pred_insights.get("market_trend_impact", 0)*100:.0f}% from favorable conditions</p>'
-    '</div>',
-    unsafe_allow_html=True
-)
+    # Predictive Insights (safe CI formatting)
+    pred_insights = conv_ai.get('predictive_insights', {})
+    ci = pred_insights.get('revenue_confidence_interval', [0, 0])
+    try:
+        low = float(ci)
+        high = float(ci[27])
+    except (TypeError, ValueError, IndexError):
+        low, high = 0.0, 0.0
+    seasonal = float(pred_insights.get('seasonal_adjustment_factor', 1))
+    trend = float(pred_insights.get('market_trend_impact', 0))
+
+    st.markdown(
+        f"""
+        <div class="ai-insight-box">
+        <h4>🔮 Revenue Predictions & Market Intelligence</h4>
+        <p><strong>Revenue Confidence Range:</strong> ${low/1000:.0f}K - ${high/1000:.0f}K</p>
+        <p><strong>Seasonal Adjustment:</strong> {seasonal*100:.0f}% expected increase</p>
+        <p><strong>Market Trend Impact:</strong> +{trend*100:.0f}% from favorable conditions</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 elif current_page == "geographic":
-    st.markdown('<h1 class="main-header">🗺️ Market Intelligence & Geographic AI Analytics</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">🌍 Market Intelligence & Geographic AI Analytics</h1>', unsafe_allow_html=True)
     geo_ai = ai_insights.get('geographic', {})
     market_intel = geo_ai.get('market_intelligence', {})
     col1, col2, col3, col4 = st.columns(4)

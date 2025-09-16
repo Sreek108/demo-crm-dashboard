@@ -656,9 +656,4 @@ with col3:
     if 'meta_insights' in ai_insights:
         st.metric("Optimization Potential", ai_insights['meta_insights'].get('optimization_potential_total', '$2.1M'))
 
-st.markdown(
-    '<div style="text-align: center; color: #6b7280; font-size: 0.9rem; margin-top: 2rem;">'
-    '🤖 AI-Powered Executive CRM Dashboard | Machine Learning Enhanced | Last Updated: September 16, 2025'
-    '</div>', 
-    unsafe_allow_html=True
 )

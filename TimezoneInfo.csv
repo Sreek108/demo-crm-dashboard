@@ -1,0 +1,6 @@
+TimezoneInfoId,TimeZoneId,DisplayName_E,UTCOffset,IsActive,CreatedBy,CreatedOn,ModifiedBy,ModifiedOn
+1,Asia/Riyadh,Arabia Standard Time,+03:00,1,SYSTEM,2025-09-15 08:49:28,SYSTEM,2025-09-15 08:49:28
+2,Asia/Dubai,Gulf Standard Time,+04:00,1,SYSTEM,2025-09-15 08:49:28,SYSTEM,2025-09-15 08:49:28
+3,Asia/Kolkata,India Standard Time,+05:30,1,SYSTEM,2025-09-15 08:49:28,SYSTEM,2025-09-15 08:49:28
+4,Europe/London,GMT/BST,+00:00,1,SYSTEM,2025-09-15 08:49:28,SYSTEM,2025-09-15 08:49:28
+5,America/New_York,Eastern Time,-05:00,1,SYSTEM,2025-09-15 08:49:28,SYSTEM,2025-09-15 08:49:28

@@ -1,0 +1,4 @@
+SentimentId,SentimentName_E,IsActive,CreatedBy,CreatedOn,ModifiedBy,ModifiedOn
+1,Positive,1,SYSTEM,2025-09-15 08:49:28,SYSTEM,2025-09-15 08:49:28
+2,Neutral,1,SYSTEM,2025-09-15 08:49:28,SYSTEM,2025-09-15 08:49:28
+3,Negative,1,SYSTEM,2025-09-15 08:49:28,SYSTEM,2025-09-15 08:49:28

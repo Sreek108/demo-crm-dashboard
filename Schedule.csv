@@ -1,0 +1,11 @@
+ScheduleId,LeadId,TaskTypeId,ScheduleTitle,ScheduledDate,TaskStatusId,AssignedAgentId,IsFollowUp,AgreedNextStep,InternalAction,Notes,CreatedBy,CreatedOn
+1,30,6,Property Demo,2025-09-17 08:49:04,4,5,1,Discuss project timeline,Prepare pricing sheet,Follow up on email inquiry,SYSTEM,2025-09-15 08:49:04
+2,27,6,Payment Discussion,2025-10-12 08:49:04,3,3,1,Discuss pricing,Prepare pricing sheet,Follow up on email inquiry,SYSTEM,2025-09-15 08:49:04
+3,35,1,Follow-up Call,2025-09-17 08:49:04,3,3,1,Discuss pricing,Prepare documents,Follow up on email inquiry,SYSTEM,2025-09-15 08:49:04
+4,1,4,Follow-up Call,2025-09-30 08:49:04,3,3,0,Discuss payment options,Prepare presentation,Follow up on email inquiry,SYSTEM,2025-09-15 08:49:04
+5,47,3,Document Review,2025-09-28 08:49:04,3,5,0,Discuss project timeline,Prepare floor plans,Follow up on email inquiry,SYSTEM,2025-09-15 08:49:04
+6,38,6,Property Demo,2025-10-02 08:49:04,3,2,0,Discuss pricing,Prepare pricing sheet,Follow up on previous call,SYSTEM,2025-09-15 08:49:04
+7,13,6,Final Decision Call,2025-10-11 08:49:04,2,1,0,Discuss floor plans,Prepare documents,Follow up on previous call,SYSTEM,2025-09-15 08:49:04
+8,8,4,Project Presentation,2025-09-25 08:49:04,5,5,1,Discuss pricing,Prepare floor plans,Follow up on email inquiry,SYSTEM,2025-09-15 08:49:04
+9,44,2,Virtual Meeting,2025-10-05 08:49:04,1,4,0,Discuss pricing,Prepare documents,Follow up on meeting request,SYSTEM,2025-09-15 08:49:04
+10,50,2,Virtual Meeting,2025-10-10 08:49:04,2,2,1,Discuss payment options,Prepare pricing sheet,Follow up on meeting request,SYSTEM,2025-09-15 08:49:04

@@ -16,7 +16,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Enhanced CSS for AI-powered styling + sticky top navbar
+# Enhanced CSS for AI-powered styling + sticky top navbar + pill look
 st.markdown("""
 <style>
     .main-header {
@@ -90,10 +90,43 @@ st.markdown("""
         font-weight: 600;
         color: #0c4a6e;
     }
+
     /* Sticky top navbar wrapper */
-    .navbar-holder { position: sticky; top: 0; z-index: 1000; background: #ffffff; padding: 0.25rem 0 0.5rem; }
+    .navbar-holder { position: sticky; top: 0; z-index: 1000; background: #ffffff; padding: 6px 0 10px; }
+
+    /* Make radio look like pill tabs */
+    #pill-nav [role="radiogroup"] { gap: 10px; flex-wrap: wrap; }
+    #pill-nav label { 
+        border: 1px solid #e5e7eb; 
+        border-radius: 14px; 
+        padding: 10px 14px; 
+        background: #fff; 
+        box-shadow: 0 1px 2px rgba(0,0,0,.04);
+        color: #334155;
+    }
+    #pill-nav label:hover { background: #f8fafc; }
+
+    /* Selected state (BaseWeb renders aria-checked on the input's parent) */
+    #pill-nav label[data-selected="true"], 
+    #pill-nav input[type="radio"]:checked + div div { 
+        background: linear-gradient(135deg, #6d28d9, #7c3aed);
+        color: #fff !important; 
+        border-color: transparent;
+    }
+
     /* Reduce default top padding so bar sits near the top */
     .block-container { padding-top: 0.5rem; }
+
+    /* “Current Section” banner */
+    .section-banner {
+        background: linear-gradient(90deg, #6d28d9, #7c3aed);
+        color: white;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-weight: 600;
+        margin: 12px 0 6px 0;
+        box-shadow: 0 6px 12px rgba(109,40,217, .15);
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -110,7 +143,6 @@ def load_ai_insights():
                 return json.load(f)
     except FileNotFoundError:
         pass
-    # Return sample insights if file not found
     return {
         "executive_summary": {
             "revenue_forecasting": {"next_30_days_total": 2968212, "forecast_confidence": 0.87},
@@ -129,7 +161,6 @@ def load_dashboard_data():
                 return json.load(f)
     except FileNotFoundError:
         pass
-    # Return sample data
     return {
         "executive_summary": {
             "total_leads": 50, "total_calls": 80, "success_rate": 31.2,
@@ -148,35 +179,39 @@ ai_insights = load_ai_insights()
 dashboard_data = load_dashboard_data()
 
 # -------------------------------
-# TOP HORIZONTAL NAVIGATION (native)
+# TOP PILL NAVIGATION (native)
 # -------------------------------
 pages = {
-    "🎯 Executive Summary": "executive_summary",
-    "📊 Lead Status Dashboard": "lead_status",
+    "🏁 Executive Summary": "executive_summary",
+    "📊 Lead Status": "lead_status",
     "📞 AI Call Activity": "call_activity",
-    "📋 Smart Tasks & Follow-up": "tasks",
-    "👥 Agent Intelligence": "agent_availability",
-    "💰 Revenue Forecasting": "conversion",
-    "🌍 Market Intelligence": "geographic"
+    "🗂️ Follow-up Tasks": "tasks",
+    "👥 Agent Availability": "agent_availability",
+    "💵 Conversion": "conversion",
+    "🗺️ Geographic": "geographic"
 }
 
-st.markdown('<div class="navbar-holder">', unsafe_allow_html=True)
-selected = st.radio(
+st.markdown('<div class="navbar-holder" id="pill-nav">', unsafe_allow_html=True)
+selected_label = st.radio(
     "Navigate:",
     list(pages.keys()),
-    horizontal=True,                 # native horizontal control
-    label_visibility="collapsed",    # hide label for a clean bar look
+    horizontal=True,              # native, dependency-free horizontal control
+    label_visibility="collapsed"  # hide label for clean top bar
 )
 st.markdown('</div>', unsafe_allow_html=True)
 
-current_page = pages.get(selected, "executive_summary")
+current_page = pages.get(selected_label, "executive_summary")
+
+# Current section banner (like the screenshot)
+st.markdown(
+    f'<div class="section-banner">📍 Current Section: {selected_label.split(" ", 1)[1]}</div>',
+    unsafe_allow_html=True
+)
 
 # Keep sidebar only for status and filters
 st.sidebar.title("🤖 AI-Powered CRM")
 st.sidebar.markdown('<div class="ai-badge">AI/ML Enhanced</div>', unsafe_allow_html=True)
 st.sidebar.markdown("---")
-
-# AI Model Status Sidebar
 st.sidebar.markdown("### 🤖 AI Models Status")
 if 'meta_insights' in ai_insights:
     meta = ai_insights['meta_insights']
@@ -185,7 +220,7 @@ if 'meta_insights' in ai_insights:
     st.sidebar.metric("AI Confidence", f"{meta.get('ai_confidence_score', 0.89)*100:.1f}%")
 
 # -------------------------------
-# PAGE ROUTING (unchanged)
+# PAGE ROUTING (your existing sections)
 # -------------------------------
 if current_page == "executive_summary":
     st.markdown('<h1 class="main-header">🎯Executive Summary</h1>', unsafe_allow_html=True)
@@ -194,7 +229,7 @@ if current_page == "executive_summary":
     with col1:
         st.metric("Total Leads", "50", delta="+5 this week")
         revenue_forecast = exec_ai.get('revenue_forecasting', {})
-        st.metric("30-Day Forecast", f"${revenue_forecast.get('next_30_days_total', 0)/1000000:.2f}M",
+        st.metric("30-Day Forecast", f"${revenue_forecast.get('next_30_days_total', 0)/1000000:.2f}M", 
                   delta=f"{revenue_forecast.get('forecast_confidence', 0)*100:.0f}% confidence")
     with col2:
         st.metric("Total Calls", "80", delta="+12 this week")
@@ -217,13 +252,15 @@ if current_page == "executive_summary":
             f'<p><strong>Next 30 Days:</strong> ${revenue_forecast.get("next_30_days_total", 0):,.0f}</p>'
             f'<p><strong>Confidence Level:</strong> {revenue_forecast.get("forecast_confidence", 0)*100:.0f}%</p>'
             f'<p><strong>Growth Rate:</strong> {trends.get("revenue_growth_rate", 0)*100:.1f}% predicted</p>'
-            '</div>', unsafe_allow_html=True)
+            '</div>', unsafe_allow_html=True
+        )
         st.markdown(
             '<div class="optimization-card"><h4>🎯 Optimization Opportunities</h4>'
             f'<p><strong>Revenue Uplift:</strong> ${opt_opp.get("total_uplift_potential", 0):,.0f}</p>'
             f'<p><strong>High-Impact Leads:</strong> {opt_opp.get("leads_with_high_uplift", 0)}</p>'
             f'<p><strong>Success Probability:</strong> {opt_opp.get("average_improvement_probability", 0)*100:.0f}%</p>'
-            '</div>', unsafe_allow_html=True)
+            '</div>', unsafe_allow_html=True
+        )
     with col2:
         st.markdown(
             '<div class="alert-card"><h4>🚨 Predictive Alerts</h4>'
@@ -231,21 +268,18 @@ if current_page == "executive_summary":
             f'<p>• {alerts.get("conversion_opportunities_closing", 0)} closing opportunities identified</p>'
             f'<p>• {alerts.get("agent_performance_warnings", 0)} agent performance warnings</p>'
             f'<p>• {alerts.get("market_expansion_signals", 0)} market expansion signals</p>'
-            '</div>', unsafe_allow_html=True)
+            '</div>', unsafe_allow_html=True
+        )
 
 elif current_page == "lead_status":
     st.markdown('<h1 class="main-header">📊 Lead Status Dashboard</h1>', unsafe_allow_html=True)
     lead_ai = ai_insights.get('lead_status', {})
     conv_pred = lead_ai.get('conversion_predictions', {})
     col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("High Probability Leads", conv_pred.get('high_probability_leads', 0), delta="AI Scored >70%")
-    with col2:
-        st.metric("Medium Probability", conv_pred.get('medium_probability_leads', 0), delta="40-70%")
-    with col3:
-        st.metric("Low Probability", conv_pred.get('low_probability_leads', 0), delta="<40%")
-    with col4:
-        st.metric("Avg Conversion Rate", f"{conv_pred.get('average_conversion_probability', 0)*100:.1f}%", delta="AI Predicted")
+    with col1: st.metric("High Probability Leads", conv_pred.get('high_probability_leads', 0), delta="AI Scored >70%")
+    with col2: st.metric("Medium Probability", conv_pred.get('medium_probability_leads', 0), delta="40-70%")
+    with col3: st.metric("Low Probability", conv_pred.get('low_probability_leads', 0), delta="<40%")
+    with col4: st.metric("Avg Conversion Rate", f"{conv_pred.get('average_conversion_probability', 0)*100:.1f}%", delta="AI Predicted")
     st.markdown('<div class="ai-insight-box"><h3>🤖 Lead Intelligence & Predictions</h3></div>', unsafe_allow_html=True)
     if 'status_transitions' in lead_ai:
         st.markdown("#### 🔄 Status Transition Predictions")
@@ -283,23 +317,23 @@ elif current_page == "call_activity":
     call_ai = ai_insights.get('call_activity', {})
     success_pred = call_ai.get('success_prediction', {})
     st.markdown(
-        f'<div class="model-accuracy">🎯 AI Model Accuracy: {success_pred.get("model_accuracy", 0)*100:.1f}% | '
-        f'Predicted Improvement: {call_ai.get("call_optimization", {}).get("predicted_success_rate_improvement", 0)*100:.1f}%</div>',
-        unsafe_allow_html=True
-    )
+        f'<div class="model-accuracy">'
+        f'🎯 AI Model Accuracy: {success_pred.get("model_accuracy", 0)*100:.1f}% | '
+        f'Predicted Improvement: {call_ai.get("call_optimization", {}).get("predicted_success_rate_improvement", 0)*100:.1f}%'
+        f'</div>', unsafe_allow_html=True)
     if 'optimal_calling_windows' in success_pred:
         st.markdown("#### 🕐 AI-Optimized Calling Schedule")
         windows_data = success_pred['optimal_calling_windows'][:5]
         windows_df = pd.DataFrame(windows_data)
         windows_df['success_rate'] = windows_df['success_rate'] * 100
         fig = px.bar(windows_df, x='time', y='success_rate',
-                     title="Top 5 Optimal Calling Windows", color='success_rate',
-                     color_continuous_scale='Viridis')
+                     title="Top 5 Optimal Calling Windows",
+                     color='success_rate', color_continuous_scale='Viridis')
         st.plotly_chart(fig, use_container_width=True)
     if 'predictive_scheduling' in call_ai:
         st.markdown("#### 📅 AI-Recommended Weekly Schedule")
         schedule = call_ai['predictive_scheduling']['next_week_optimal_schedule']
-        schedule_df = pd.DataFrame([{'Day': d, 'Optimal Times': ', '.join(t)} for d, t in schedule.items()])
+        schedule_df = pd.DataFrame([{'Day': day, 'Optimal Times': ', '.join(times)} for day, times in schedule.items()])
         st.dataframe(schedule_df, use_container_width=True)
     call_opt = call_ai.get('call_optimization', {})
     col1, col2, col3 = st.columns(3)
@@ -307,8 +341,7 @@ elif current_page == "call_activity":
         st.markdown(
             '<div class="prediction-card"><h4>📈 Success Rate Improvement</h4>'
             f'<p><strong>Predicted Gain:</strong> {call_opt.get("predicted_success_rate_improvement", 0)*100:.1f}%</p>'
-            f'<p><strong>Optimal Volume:</strong> {call_opt.get("optimal_call_volume_per_agent", 0)} calls/agent</p>'
-            '</div>', unsafe_allow_html=True)
+            f'<p><strong>Optimal Volume:</strong> {call_opt.get("optimal_call_volume_per_agent", 0)} calls/agent</p></div>', unsafe_allow_html=True)
     with col2:
         st.markdown(
             '<div class="optimization-card"><h4>🎯 Sentiment Impact</h4>'
@@ -322,18 +355,14 @@ elif current_page == "call_activity":
             '<p>• Sentiment monitoring critical</p></div>', unsafe_allow_html=True)
 
 elif current_page == "tasks":
-    st.markdown('<h1 class="main-header">📋 Smart Task Management & AI Prioritization</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">🗂️ Smart Task Management & AI Prioritization</h1>', unsafe_allow_html=True)
     task_ai = ai_insights.get('tasks_followup', {})
     smart_prior = task_ai.get('smart_prioritization', {})
     col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("High Priority Tasks", smart_prior.get('high_priority_tasks', 0), delta="AI Prioritized")
-    with col2:
-        st.metric("Medium Priority", smart_prior.get('medium_priority_tasks', 0))
-    with col3:
-        st.metric("Low Priority", smart_prior.get('low_priority_tasks', 0))
-    with col4:
-        st.metric("Success Rate Prediction", f"{task_ai.get('success_prediction', {}).get('overall_success_rate_prediction', 0)*100:.1f}%")
+    with col1: st.metric("High Priority Tasks", smart_prior.get('high_priority_tasks', 0), delta="AI Prioritized")
+    with col2: st.metric("Medium Priority", smart_prior.get('medium_priority_tasks', 0))
+    with col3: st.metric("Low Priority", smart_prior.get('low_priority_tasks', 0))
+    with col4: st.metric("Success Rate Prediction", f"{task_ai.get('success_prediction', {}).get('overall_success_rate_prediction', 0)*100:.1f}%")
     urgent = task_ai.get('urgent_actions', {})
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -358,14 +387,10 @@ elif current_page == "agent_availability":
     agent_ai = ai_insights.get('agent_availability', {})
     perf_pred = agent_ai.get('performance_prediction', {})
     col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("Exceeding Targets", perf_pred.get('agents_exceeding_targets', 0), delta="AI Predicted")
-    with col2:
-        st.metric("Need Support", perf_pred.get('agents_needing_support', 0), delta="Early Warning")
-    with col3:
-        st.metric("Improvement Potential", f"{perf_pred.get('average_performance_improvement_potential', 0)*100:.1f}%")
-    with col4:
-        st.metric("Training Impact", f"{agent_ai.get('skills_development', {}).get('training_impact_prediction', 0)*100:.1f}%")
+    with col1: st.metric("Exceeding Targets", perf_pred.get('agents_exceeding_targets', 0), delta="AI Predicted")
+    with col2: st.metric("Need Support", perf_pred.get('agents_needing_support', 0), delta="Early Warning")
+    with col3: st.metric("Improvement Potential", f"{perf_pred.get('average_performance_improvement_potential', 0)*100:.1f}%")
+    with col4: st.metric("Training Impact", f"{agent_ai.get('skills_development', {}).get('training_impact_prediction', 0)*100:.1f}%")
     capacity = agent_ai.get('capacity_optimization', {})
     col1, col2 = st.columns(2)
     with col1:
@@ -386,18 +411,14 @@ elif current_page == "agent_availability":
         f'<p><strong>Wellness Score:</strong> {burnout.get("wellness_score", 0)*100:.0f}%</p></div>', unsafe_allow_html=True)
 
 elif current_page == "conversion":
-    st.markdown('<h1 class="main-header">💰 AI Revenue Forecasting & Conversion Intelligence</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">💵 AI Revenue Forecasting & Conversion Intelligence</h1>', unsafe_allow_html=True)
     conv_ai = ai_insights.get('conversion', {})
     revenue_forecast = conv_ai.get('revenue_forecasting', {})
     col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("Pipeline Value", f"${revenue_forecast.get('total_pipeline_value', 0)/1000000:.2f}M")
-    with col2:
-        st.metric("Next Quarter Forecast", f"${revenue_forecast.get('expected_revenue_next_quarter', 0)/1000:.0f}K", delta="AI Predicted")
-    with col3:
-        st.metric("High Probability Revenue", f"${revenue_forecast.get('high_probability_revenue', 0)/1000:.0f}K")
-    with col4:
-        st.metric("Next Month Conversions", conv_ai.get('predictive_insights', {}).get('next_month_conversions_forecast', 0))
+    with col1: st.metric("Pipeline Value", f"${revenue_forecast.get('total_pipeline_value', 0)/1000000:.2f}M")
+    with col2: st.metric("Next Quarter Forecast", f"${revenue_forecast.get('expected_revenue_next_quarter', 0)/1000:.0f}K", delta="AI Predicted")
+    with col3: st.metric("High Probability Revenue", f"${revenue_forecast.get('high_probability_revenue', 0)/1000:.0f}K")
+    with col4: st.metric("Next Month Conversions", conv_ai.get('predictive_insights', {}).get('next_month_conversions_forecast', 0))
     conv_opt = conv_ai.get('conversion_optimization', {})
     col1, col2 = st.columns(2)
     with col1:
@@ -416,23 +437,19 @@ elif current_page == "conversion":
     confidence_interval = pred_insights.get('revenue_confidence_interval', [0, 0])
     st.markdown(
         '<div class="ai-insight-box"><h4>🔮 Revenue Predictions & Market Intelligence</h4>'
-        f'<p><strong>Revenue Confidence Range:</strong> ${confidence_interval/1000:.0f}K - ${confidence_interval[25]/1000:.0f}K</p>'
+        f'<p><strong>Revenue Confidence Range:</strong> ${confidence_interval/1000:.0f}K - ${confidence_interval[1]/1000:.0f}K</p>'
         f'<p><strong>Seasonal Adjustment:</strong> {pred_insights.get("seasonal_adjustment_factor", 1)*100:.0f}% expected increase</p>'
         f'<p><strong>Market Trend Impact:</strong> +{pred_insights.get("market_trend_impact", 0)*100:.0f}% from favorable conditions</p></div>', unsafe_allow_html=True)
 
 elif current_page == "geographic":
-    st.markdown('<h1 class="main-header">🌍 Market Intelligence & Geographic AI Analytics</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">🗺️ Market Intelligence & Geographic AI Analytics</h1>', unsafe_allow_html=True)
     geo_ai = ai_insights.get('geographic', {})
     market_intel = geo_ai.get('market_intelligence', {})
     col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("Top Opportunity Market", market_intel.get('top_opportunity_market', 'N/A'), delta="AI Ranked #1")
-    with col2:
-        st.metric("Fastest Growing", market_intel.get('fastest_growing_market', 'N/A'), delta="Growth Leader")
-    with col3:
-        st.metric("Best Conversion", market_intel.get('highest_conversion_market', 'N/A'), delta="Performance Leader")
-    with col4:
-        st.metric("Market Diversity", f"{market_intel.get('market_diversity_index', 0)*100:.0f}%", delta="Balance Score")
+    with col1: st.metric("Top Opportunity Market", market_intel.get('top_opportunity_market', 'N/A'), delta="AI Ranked #1")
+    with col2: st.metric("Fastest Growing", market_intel.get('fastest_growing_market', 'N/A'), delta="Growth Leader")
+    with col3: st.metric("Best Conversion", market_intel.get('highest_conversion_market', 'N/A'), delta="Performance Leader")
+    with col4: st.metric("Market Diversity", f"{market_intel.get('market_diversity_index', 0)*100:.0f}%", delta="Balance Score")
     expansion = geo_ai.get('expansion_opportunities', {})
     col1, col2 = st.columns(2)
     with col1:

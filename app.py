@@ -448,11 +448,17 @@ elif current_page == "conversion":
             f'<p><strong>Stalled Deals:</strong> {conv_ai.get("time_to_conversion", {}).get("stalled_deals_needing_attention", 0)}</p></div>', unsafe_allow_html=True)
     pred_insights = conv_ai.get('predictive_insights', {})
     confidence_interval = pred_insights.get('revenue_confidence_interval', [0, 0])
-    st.markdown(
-        '<div class="ai-insight-box"><h4>🔮 Revenue Predictions & Market Intelligence</h4>'
-        f'<p><strong>Revenue Confidence Range:</strong> ${confidence_interval/1000:.0f}K - ${confidence_interval[1]/1000:.0f}K</p>'
-        f'<p><strong>Seasonal Adjustment:</strong> {pred_insights.get("seasonal_adjustment_factor", 1)*100:.0f}% expected increase</p>'
-        f'<p><strong>Market Trend Impact:</strong> +{pred_insights.get("market_trend_impact", 0)*100:.0f}% from favorable conditions</p></div>', unsafe_allow_html=True)
+
+st.markdown(
+    '<div class="ai-insight-box">'
+    '<h4>🔮 Revenue Predictions & Market Intelligence</h4>'
+    f'<p><strong>Revenue Confidence Range:</strong> '
+    f'${float(confidence_interval)/1000:.0f}K - ${float(confidence_interval[25])/1000:.0f}K</p>'
+    f'<p><strong>Seasonal Adjustment:</strong> {pred_insights.get("seasonal_adjustment_factor", 1)*100:.0f}% expected increase</p>'
+    f'<p><strong>Market Trend Impact:</strong> +{pred_insights.get("market_trend_impact", 0)*100:.0f}% from favorable conditions</p>'
+    '</div>',
+    unsafe_allow_html=True
+)
 
 elif current_page == "geographic":
     st.markdown('<h1 class="main-header">🗺️ Market Intelligence & Geographic AI Analytics</h1>', unsafe_allow_html=True)

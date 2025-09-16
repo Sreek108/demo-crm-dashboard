@@ -656,4 +656,4 @@ with col3:
     if 'meta_insights' in ai_insights:
         st.metric("Optimization Potential", ai_insights['meta_insights'].get('optimization_potential_total', '$2.1M'))
 
-)
+

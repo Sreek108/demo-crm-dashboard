@@ -181,7 +181,7 @@ if 'meta_insights' in ai_insights:
 
 # Main content based on selected page
 if current_page == "executive_summary":
-    st.markdown('<h1 class="main-header">🎯 AI-Powered Executive Summary</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">🎯Executive Summary</h1>', unsafe_allow_html=True)
 
     # AI Insights Header
     exec_ai = ai_insights.get('executive_summary', {})
@@ -259,7 +259,7 @@ if current_page == "executive_summary":
         )
 
 elif current_page == "lead_status":
-    st.markdown('<h1 class="main-header">📊 AI-Enhanced Lead Status Dashboard</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">📊 Lead Status Dashboard</h1>', unsafe_allow_html=True)
 
     # Lead Status AI Insights
     lead_ai = ai_insights.get('lead_status', {})

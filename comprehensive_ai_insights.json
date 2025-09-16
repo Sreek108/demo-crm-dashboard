@@ -1,0 +1,266 @@
+{
+  "executive_summary": {
+    "revenue_forecasting": {
+      "next_30_days_total": 2968212,
+      "average_lead_value": 59364,
+      "high_value_leads_count": 18,
+      "forecast_confidence": 0.87
+    },
+    "performance_trends": {
+      "revenue_growth_rate": 0.156,
+      "lead_quality_trend": 0.082,
+      "conversion_acceleration": 0.034,
+      "churn_risk_reduction": 0.121
+    },
+    "optimization_opportunities": {
+      "total_uplift_potential": 347540,
+      "leads_with_high_uplift": 12,
+      "average_improvement_probability": 0.73
+    },
+    "predictive_alerts": {
+      "high_risk_leads_next_week": 8,
+      "conversion_opportunities_closing": 5,
+      "agent_performance_warnings": 2,
+      "market_expansion_signals": 3
+    }
+  },
+  "lead_status": {
+    "conversion_predictions": {
+      "high_probability_leads": 1,
+      "medium_probability_leads": 18,
+      "low_probability_leads": 31,
+      "average_conversion_probability": 0.04
+    },
+    "status_transitions": {
+      "Uncontacted": {
+        "next_likely_status": "Attempted Contact",
+        "probability": 0.78,
+        "avg_days": 2.3
+      },
+      "Attempted Contact": {
+        "next_likely_status": "Interested",
+        "probability": 0.45,
+        "avg_days": 5.1
+      },
+      "Interested": {
+        "next_likely_status": "In Discussion",
+        "probability": 0.62,
+        "avg_days": 7.8
+      },
+      "In Discussion": {
+        "next_likely_status": "Won",
+        "probability": 0.35,
+        "avg_days": 12.4
+      }
+    },
+    "optimization_recommendations": {
+      "priority_leads_for_immediate_action": [
+        48,
+        6,
+        15,
+        12,
+        8
+      ],
+      "leads_at_risk_of_churn": [
+        2,
+        4,
+        9,
+        17,
+        24,
+        25,
+        28,
+        29,
+        30,
+        38,
+        45,
+        46,
+        48,
+        50
+      ],
+      "high_value_opportunities": [
+        6,
+        8,
+        12,
+        15,
+        23,
+        29,
+        41,
+        47
+      ]
+    }
+  },
+  "call_activity": {
+    "success_prediction": {
+      "model_accuracy": 0.73,
+      "optimal_calling_windows": [
+        {
+          "time": "Thu_11",
+          "success_rate": 0.39
+        },
+        {
+          "time": "Mon_10",
+          "success_rate": 0.37
+        },
+        {
+          "time": "Tue_14",
+          "success_rate": 0.36
+        }
+      ]
+    },
+    "call_optimization": {
+      "predicted_success_rate_improvement": 0.127,
+      "optimal_call_volume_per_agent": 8.5,
+      "sentiment_correlation": 0.64
+    },
+    "predictive_scheduling": {
+      "next_week_optimal_schedule": {
+        "Monday": [
+          "10:00",
+          "14:00",
+          "16:00"
+        ],
+        "Tuesday": [
+          "09:00",
+          "11:00",
+          "15:00"
+        ],
+        "Wednesday": [
+          "10:00",
+          "13:00",
+          "17:00"
+        ]
+      }
+    }
+  },
+  "tasks_followup": {
+    "smart_prioritization": {
+      "high_priority_tasks": 14,
+      "medium_priority_tasks": 11,
+      "low_priority_tasks": 5,
+      "average_priority_score": 0.62
+    },
+    "success_prediction": {
+      "overall_success_rate_prediction": 0.951,
+      "high_success_probability_tasks": 28,
+      "low_success_probability_tasks": 2
+    },
+    "urgent_actions": {
+      "overdue_tasks": 3,
+      "tasks_due_today": 2,
+      "tasks_due_this_week": 8
+    },
+    "predictive_insights": {
+      "completion_rate_forecast": 0.74,
+      "productivity_improvement_potential": 0.23
+    }
+  },
+  "agent_availability": {
+    "performance_prediction": {
+      "agents_exceeding_targets": 2,
+      "agents_needing_support": 1,
+      "average_performance_improvement_potential": 0.089
+    },
+    "capacity_optimization": {
+      "current_utilization_rate": 0.827,
+      "underutilized_agents": [
+        2,
+        5
+      ],
+      "overutilized_agents": [
+        1,
+        4
+      ]
+    },
+    "skills_development": {
+      "agents_needing_training": [
+        1,
+        4
+      ],
+      "training_impact_prediction": 0.156,
+      "priority_training_areas": [
+        "Sales_Skills",
+        "Product_Knowledge",
+        "CRM_Proficiency"
+      ]
+    },
+    "burnout_prevention": {
+      "high_burnout_risk_agents": [
+        1,
+        3
+      ],
+      "wellness_score": 0.68
+    }
+  },
+  "conversion": {
+    "revenue_forecasting": {
+      "total_pipeline_value": 2940000,
+      "expected_revenue_next_quarter": 352800,
+      "high_probability_revenue": 180000
+    },
+    "conversion_optimization": {
+      "optimization_opportunities_count": 6,
+      "total_revenue_at_risk": 480000,
+      "potential_revenue_uplift": 395777
+    },
+    "time_to_conversion": {
+      "average_conversion_time": 20.7,
+      "fast_track_opportunities": 3,
+      "stalled_deals_needing_attention": 8
+    },
+    "predictive_insights": {
+      "next_month_conversions_forecast": 7,
+      "revenue_confidence_interval": [
+        450000,
+        680000
+      ],
+      "seasonal_adjustment_factor": 1.12
+    }
+  },
+  "geographic": {
+    "market_intelligence": {
+      "top_opportunity_market": "United Kingdom",
+      "fastest_growing_market": "India",
+      "highest_conversion_market": "United Kingdom",
+      "market_diversity_index": 0.67
+    },
+    "expansion_opportunities": {
+      "high_potential_markets": [
+        "United Kingdom",
+        "United States"
+      ],
+      "total_expansion_potential": "$1,200,000",
+      "underserved_markets": [
+        "India",
+        "Saudi Arabia"
+      ]
+    },
+    "risk_analysis": {
+      "high_risk_markets": [],
+      "regulatory_challenges": [
+        "India",
+        "Saudi Arabia"
+      ],
+      "competitive_pressures": [
+        "India",
+        "United States"
+      ]
+    },
+    "predictive_analytics": {
+      "market_saturation_timeline": {
+        "United States": "18-24 months",
+        "United Kingdom": "12-18 months",
+        "Saudi Arabia": "24-30 months",
+        "India": "36-48 months"
+      }
+    }
+  },
+  "meta_insights": {
+    "total_models_deployed": 12,
+    "prediction_accuracy_average": 0.743,
+    "optimization_potential_total": "$2.1M",
+    "automation_opportunities": 23,
+    "ai_confidence_score": 0.89,
+    "last_model_update": "2025-09-16",
+    "next_model_refresh": "2025-10-16"
+  }
+}

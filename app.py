@@ -10,7 +10,7 @@ import os
 
 # Page configuration
 st.set_page_config(
-    page_title="AI-Powered Executive CRM Dashboard", 
+    page_title="AI-Powered CRM Dashboard", 
     page_icon="🤖", 
     layout="wide",
     initial_sidebar_state="expanded"
@@ -159,13 +159,13 @@ st.sidebar.markdown('<div class="ai-badge">AI/ML Enhanced</div>', unsafe_allow_h
 st.sidebar.markdown("---")
 
 pages = {
-    "🎯 Executive Summary": "executive_summary",
-    "📊 Lead Status Dashboard": "lead_status", 
-    "📞 AI Call Activity": "call_activity",
-    "📋 Smart Tasks & Follow-up": "tasks",
-    "👥 Agent Intelligence": "agent_availability",
-    "💰 Revenue Forecasting": "conversion",
-    "🌍 Market Intelligence": "geographic"
+    "Executive Summary": "executive_summary",
+    "Lead Status Dashboard": "lead_status", 
+    "AI Call Activity": "call_activity",
+    "Smart Tasks & Follow-up": "tasks",
+    "Agent Intelligence": "agent_availability",
+    "Revenue Forecasting": "conversion",
+    "Market Intelligence": "geographic"
 }
 
 selected_page = st.sidebar.selectbox("Navigate to:", list(pages.keys()))

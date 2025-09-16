@@ -1,0 +1,51 @@
+LeadId,FullName,StatusName_E,ScoreName_E,Revenue_Potential,Churn_Risk,FirstName,LastName,CountryName_E,CityName_E,Role,DaysSinceCreation
+1,Michael Brown,Attempted Contact,COLD,20000,65.0,Jasmin,Ahmed,United States,New York,AI Agent,21
+2,Yousef Al-Harbi,Lost,WARM,40000,80.0,Mohammed,Ali,Saudi Arabia,Jeddah,Senior Closer,31
+3,Maryam Al-Thani,Lost,WARM,40000,50.0,Jasmin,Ahmed,United Arab Emirates,Abu Dhabi,AI Agent,15
+4,Jennifer Martinez,Awaiting Budget,WARM,40000,70.0,Ahmed,Hassan,United Kingdom,London,Senior Sales Agent,33
+5,Kevin White,In Discussion,COLD,20000,60.0,Fatima,Al-Zahra,United Kingdom,London,Junior Sales Agent,35
+6,Vikram Mehta,Attempted Contact,HOT,60000,45.0,Ahmed,Hassan,India,Mumbai,Senior Sales Agent,14
+7,Michael Brown,Attempted Contact,WARM,40000,35.0,Fatima,Al-Zahra,United States,New York,Junior Sales Agent,13
+8,Rohit Gupta,Uncontacted,HOT,60000,30.0,Fatima,Al-Zahra,India,Delhi,Junior Sales Agent,24
+9,Jennifer Martinez,Uncontacted,DEAD,0,90.0,Jasmin,Ahmed,United Kingdom,London,AI Agent,34
+10,Robert Johnson,Uncontacted,WARM,40000,25.0,Jasmin,Ahmed,United States,New York,AI Agent,9
+11,Neha Chopra,Follow-up Needed,WARM,40000,55.0,Fatima,Al-Zahra,India,Delhi,Junior Sales Agent,20
+12,Amanda Taylor,Won,HOT,100000,20.0,Fatima,Al-Zahra,United Kingdom,London,Junior Sales Agent,37
+13,Huda Al-Zaabi,Attempted Contact,WARM,40000,45.0,Fatima,Al-Zahra,United Arab Emirates,Abu Dhabi,Junior Sales Agent,23
+14,Mohammed Al-Ansari,On Hold,WARM,40000,65.0,Fatima,Al-Zahra,Saudi Arabia,Jeddah,Junior Sales Agent,18
+15,Amanda Taylor,Interested,HOT,60000,40.0,Mohammed,Ali,United States,New York,Senior Closer,3
+16,Michelle Lee,In Discussion,WARM,40000,50.0,Sarah,Johnson,United States,New York,Lead Nurture Specialist,24
+17,Jennifer Martinez,On Hold,DEAD,0,85.0,Fatima,Al-Zahra,United Kingdom,London,Junior Sales Agent,10
+18,Arjun Nair,Awaiting Budget,WARM,40000,75.0,Ahmed,Hassan,India,Mumbai,Senior Sales Agent,11
+19,Ashley Rodriguez,Follow-up Needed,DEAD,0,95.0,Fatima,Al-Zahra,United States,New York,Junior Sales Agent,30
+20,Daniel Clark,On Hold,WARM,40000,60.0,Ahmed,Hassan,United States,New York,Senior Sales Agent,24
+21,Lisa Anderson,Uncontacted,WARM,40000,35.0,Sarah,Johnson,United States,New York,Lead Nurture Specialist,26
+22,Robert Johnson,Uncontacted,WARM,40000,30.0,Jasmin,Ahmed,United Kingdom,London,AI Agent,5
+23,Pooja Agarwal,Uncontacted,HOT,60000,25.0,Ahmed,Hassan,India,Mumbai,Senior Sales Agent,4
+24,Deepika Singh,Lost,WARM,40000,80.0,Ahmed,Hassan,India,Delhi,Senior Sales Agent,35
+25,Neha Chopra,On Hold,DEAD,0,85.0,Sarah,Johnson,India,Delhi,Lead Nurture Specialist,25
+26,Kavya Reddy,Attempted Contact,DEAD,0,75.0,Ahmed,Hassan,India,Delhi,Senior Sales Agent,22
+27,Khadija Al-Qasimi,Lost,WARM,40000,85.0,Ahmed,Hassan,United Arab Emirates,Dubai,Senior Sales Agent,8
+28,Kevin White,Awaiting Budget,WARM,40000,70.0,Mohammed,Ali,United Kingdom,London,Senior Closer,35
+29,Yousef Al-Harbi,Follow-up Needed,HOT,60000,90.0,Mohammed,Ali,Saudi Arabia,Riyadh,Senior Closer,44
+30,Khalid Al-Otaibi,Awaiting Budget,WARM,40000,85.0,Sarah,Johnson,Saudi Arabia,Riyadh,Lead Nurture Specialist,29
+31,Amit Kumar,Interested,WARM,40000,55.0,Sarah,Johnson,India,Delhi,Lead Nurture Specialist,41
+32,Rajesh Sharma,On Hold,WARM,40000,25.0,Fatima,Al-Zahra,India,Delhi,Junior Sales Agent,6
+33,Robert Johnson,Uncontacted,WARM,40000,30.0,Mohammed,Ali,United States,New York,Senior Closer,12
+34,Fatima Al-Zahra,Won,WARM,80000,20.0,Sarah,Johnson,Saudi Arabia,Jeddah,Lead Nurture Specialist,3
+35,Hassan Al-Sabah,Awaiting Budget,DEAD,0,70.0,Ahmed,Hassan,Saudi Arabia,Riyadh,Senior Sales Agent,5
+36,Sarah Thompson,Interested,WARM,40000,45.0,Mohammed,Ali,United States,New York,Senior Closer,30
+37,Yousef Al-Harbi,Won,WARM,80000,25.0,Mohammed,Ali,United Arab Emirates,Dubai,Senior Closer,24
+38,Khadija Al-Qasimi,On Hold,WARM,40000,75.0,Fatima,Al-Zahra,United Arab Emirates,Abu Dhabi,Junior Sales Agent,44
+39,Noura Al-Rashid,Not Interested,WARM,40000,80.0,Mohammed,Ali,United Arab Emirates,Abu Dhabi,Senior Closer,7
+40,Noura Al-Rashid,Uncontacted,WARM,40000,35.0,Fatima,Al-Zahra,United Arab Emirates,Dubai,Junior Sales Agent,9
+41,Lisa Anderson,Won,HOT,100000,15.0,Ahmed,Hassan,United States,New York,Senior Sales Agent,31
+42,Fatima Al-Zahra,Attempted Contact,WARM,40000,50.0,Jasmin,Ahmed,United Arab Emirates,Abu Dhabi,AI Agent,7
+43,Kevin White,Not Interested,WARM,40000,70.0,Mohammed,Ali,United States,New York,Senior Closer,28
+44,David Miller,In Discussion,WARM,40000,55.0,Ahmed,Hassan,United States,New York,Senior Sales Agent,22
+45,Omar Al-Farisi,Not Interested,DEAD,0,95.0,Jasmin,Ahmed,Saudi Arabia,Riyadh,AI Agent,42
+46,Suresh Rao,Awaiting Budget,WARM,40000,65.0,Jasmin,Ahmed,India,Delhi,AI Agent,2
+47,Saeed Al-Mansoori,Won,WARM,80000,30.0,Jasmin,Ahmed,United Arab Emirates,Dubai,AI Agent,31
+48,Yousef Al-Harbi,In Discussion,WARM,40000,60.0,Sarah,Johnson,Saudi Arabia,Riyadh,Lead Nurture Specialist,43
+49,Ahmed Al-Rashid,Interested,WARM,40000,50.0,Mohammed,Ali,Saudi Arabia,Riyadh,Senior Closer,33
+50,Sanjay Jain,On Hold,WARM,40000,70.0,Ahmed,Hassan,India,Delhi,Senior Sales Agent,25

@@ -1,0 +1,16 @@
+LeadId,FullName,StatusName_E,ScoreName_E,Revenue_Potential,Churn_Risk,FirstName,LastName,CountryName_E,AssignedAgentId
+1,Michael Brown,Attempted Contact,COLD,20000,65.0,Jasmin,Ahmed,United States,1
+2,Yousef Al-Harbi,Lost,WARM,40000,80.0,Mohammed,Ali,Saudi Arabia,2
+3,Maryam Al-Thani,Lost,WARM,40000,50.0,Jasmin,Ahmed,United Arab Emirates,1
+4,Jennifer Martinez,Awaiting Budget,WARM,40000,70.0,Ahmed,Hassan,United Kingdom,4
+5,Kevin White,In Discussion,COLD,20000,60.0,Fatima,Al-Zahra,United Kingdom,5
+6,Vikram Mehta,Attempted Contact,HOT,60000,45.0,Ahmed,Hassan,India,4
+7,Michael Brown,Attempted Contact,WARM,40000,35.0,Fatima,Al-Zahra,United States,5
+8,Rohit Gupta,Uncontacted,HOT,60000,30.0,Fatima,Al-Zahra,India,5
+9,Jennifer Martinez,Uncontacted,DEAD,0,90.0,Jasmin,Ahmed,United Kingdom,1
+10,Robert Johnson,Uncontacted,WARM,40000,25.0,Jasmin,Ahmed,United States,1
+11,Neha Chopra,Follow-up Needed,WARM,40000,55.0,Fatima,Al-Zahra,India,5
+12,Amanda Taylor,Won,HOT,100000,20.0,Fatima,Al-Zahra,United Kingdom,5
+13,Huda Al-Zaabi,Attempted Contact,WARM,40000,45.0,Fatima,Al-Zahra,United Arab Emirates,5
+14,Mohammed Al-Ansari,On Hold,WARM,40000,65.0,Fatima,Al-Zahra,Saudi Arabia,5
+15,Amanda Taylor,Interested,HOT,60000,40.0,Mohammed,Ali,United States,2

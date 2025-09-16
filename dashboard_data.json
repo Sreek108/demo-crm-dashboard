@@ -1,0 +1,274 @@
+{
+  "executive_summary": {
+    "total_leads": 50,
+    "total_calls": 80,
+    "connected_calls": 25,
+    "success_rate": 31.2,
+    "total_revenue_potential": 1290000,
+    "high_risk_leads": 13,
+    "conversion_rate": 10.0,
+    "agents_count": 5,
+    "countries_coverage": 5,
+    "avg_churn_risk": 54.2
+  },
+  "lead_status": {
+    "Uncontacted": 8,
+    "On Hold": 7,
+    "Awaiting Budget": 6,
+    "Attempted Contact": 6,
+    "Won": 5,
+    "Lost": 4,
+    "Interested": 4,
+    "In Discussion": 4,
+    "Follow-up Needed": 3,
+    "Not Interested": 3
+  },
+  "lead_stage": {
+    "New": 22,
+    "Qualified": 10,
+    "Converted": 10,
+    "Nurtured": 8
+  },
+  "lead_scoring": {
+    "COLD": 22,
+    "WARM": 13,
+    "HOT": 8,
+    "DEAD": 7
+  },
+  "geographic": {
+    "United States": {
+      "LeadId": 13,
+      "Revenue_Potential": 520000,
+      "Churn_Risk": 52.31
+    },
+    "India": {
+      "LeadId": 12,
+      "Revenue_Potential": 240000,
+      "Churn_Risk": 55.83
+    },
+    "Saudi Arabia": {
+      "LeadId": 9,
+      "Revenue_Potential": 240000,
+      "Churn_Risk": 53.33
+    },
+    "United Arab Emirates": {
+      "LeadId": 9,
+      "Revenue_Potential": 180000,
+      "Churn_Risk": 57.78
+    },
+    "United Kingdom": {
+      "LeadId": 7,
+      "Revenue_Potential": 280000,
+      "Churn_Risk": 51.43
+    }
+  },
+  "agent_performance": {
+    "Jasmin Ahmed": {
+      "role": "AI Agent",
+      "total_leads": 9,
+      "hot_leads": 1,
+      "won_leads": 1,
+      "win_rate": 11.11
+    },
+    "Mohammed Ali": {
+      "role": "Senior Closer",
+      "total_leads": 10,
+      "hot_leads": 2,
+      "won_leads": 1,
+      "win_rate": 10.0
+    },
+    "Sarah Johnson": {
+      "role": "Lead Nurture Specialist",
+      "total_leads": 7,
+      "hot_leads": 0,
+      "won_leads": 1,
+      "win_rate": 14.29
+    },
+    "Ahmed Hassan": {
+      "role": "Senior Sales Agent",
+      "total_leads": 12,
+      "hot_leads": 3,
+      "won_leads": 1,
+      "win_rate": 8.33
+    },
+    "Fatima Al-Zahra": {
+      "role": "Junior Sales Agent",
+      "total_leads": 12,
+      "hot_leads": 2,
+      "won_leads": 1,
+      "win_rate": 8.33
+    }
+  },
+  "call_activity": [
+    {
+      "date": "2025-09-11",
+      "calls": 2
+    },
+    {
+      "date": "2025-09-12",
+      "calls": 2
+    },
+    {
+      "date": "2025-09-13",
+      "calls": 1
+    },
+    {
+      "date": "2025-09-14",
+      "calls": 1
+    },
+    {
+      "date": "2025-09-15",
+      "calls": 4
+    }
+  ],
+  "hourly_success": [
+    {
+      "hour": 9,
+      "total_calls": 10,
+      "success_rate": 20.0
+    },
+    {
+      "hour": 10,
+      "total_calls": 6,
+      "success_rate": 50.0
+    },
+    {
+      "hour": 11,
+      "total_calls": 10,
+      "success_rate": 30.0
+    },
+    {
+      "hour": 12,
+      "total_calls": 8,
+      "success_rate": 25.0
+    },
+    {
+      "hour": 13,
+      "total_calls": 4,
+      "success_rate": 25.0
+    },
+    {
+      "hour": 14,
+      "total_calls": 11,
+      "success_rate": 45.45
+    },
+    {
+      "hour": 15,
+      "total_calls": 9,
+      "success_rate": 44.44
+    },
+    {
+      "hour": 16,
+      "total_calls": 5,
+      "success_rate": 20.0
+    },
+    {
+      "hour": 17,
+      "total_calls": 10,
+      "success_rate": 10.0
+    },
+    {
+      "hour": 18,
+      "total_calls": 7,
+      "success_rate": 42.86
+    }
+  ],
+  "upcoming_tasks": [
+    {
+      "lead_id": 30,
+      "title": "Property Demo",
+      "scheduled_date": "2025-09-17 08:49:04",
+      "days_until": 1,
+      "agent_id": 5
+    },
+    {
+      "lead_id": 35,
+      "title": "Follow-up Call",
+      "scheduled_date": "2025-09-17 08:49:04",
+      "days_until": 1,
+      "agent_id": 3
+    },
+    {
+      "lead_id": 27,
+      "title": "Payment Discussion",
+      "scheduled_date": "2025-10-12 08:49:04",
+      "days_until": 26,
+      "agent_id": 3
+    },
+    {
+      "lead_id": 1,
+      "title": "Follow-up Call",
+      "scheduled_date": "2025-09-30 08:49:04",
+      "days_until": 14,
+      "agent_id": 3
+    },
+    {
+      "lead_id": 47,
+      "title": "Document Review",
+      "scheduled_date": "2025-09-28 08:49:04",
+      "days_until": 12,
+      "agent_id": 5
+    }
+  ],
+  "revenue_forecast": {
+    "HOT": 460000,
+    "WARM": 440000,
+    "COLD": 390000,
+    "DEAD": 0
+  },
+  "ml_insights": {
+    "feature_importance": [
+      {
+        "Feature": "DaysSinceCreation",
+        "Importance": 0.226463
+      },
+      {
+        "Feature": "AssignedAgentId",
+        "Importance": 0.20803
+      },
+      {
+        "Feature": "StatusEncoded",
+        "Importance": 0.203029
+      },
+      {
+        "Feature": "CityEncoded",
+        "Importance": 0.130561
+      },
+      {
+        "Feature": "StageEncoded",
+        "Importance": 0.128004
+      },
+      {
+        "Feature": "CountryEncoded",
+        "Importance": 0.103913
+      }
+    ],
+    "churn_prediction": {
+      "high_risk_count": 13,
+      "medium_risk_count": 20,
+      "low_risk_count": 17
+    },
+    "conversion_predictions": {
+      "COLD": {
+        "Total_Leads": 22,
+        "Won_Leads": 2,
+        "Conversion_Rate": 9.09
+      },
+      "DEAD": {
+        "Total_Leads": 7,
+        "Won_Leads": 0,
+        "Conversion_Rate": 0.0
+      },
+      "HOT": {
+        "Total_Leads": 8,
+        "Won_Leads": 2,
+        "Conversion_Rate": 25.0
+      },
+      "WARM": {
+        "Total_Leads": 13,
+        "Won_Leads": 1,
+        "Conversion_Rate": 7.69
+      }
+    }
+  }
+}

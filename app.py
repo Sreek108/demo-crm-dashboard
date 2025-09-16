@@ -94,12 +94,18 @@ st.markdown("""
     /* Sticky top navbar wrapper */
     .navbar-holder {
         position: sticky;
-        top: 14px;              /* move the sticky bar down; adjust 12–24px as needed */
-        margin-top: 6px;        /* adds spacing before the bar in normal flow */
+        top: 56px;            /* push bar down; adjust 48–72px to taste */
+        margin-top: 12px;     /* lowers initial (non‑sticky) position */
+        margin-bottom: 6px;   /* adds breathing room before banner */
         z-index: 1000;
         background: #ffffff;
         padding: 6px 0 10px;
-    }
+        }
+
+    /* Add a bit more overall top padding so nothing feels cramped */
+    .block-container {
+        padding-top: 1.25rem !important;  /* ~20px; tune 1.0–1.5rem */
+        }
 
     /* Make radio look like pill tabs */
     #pill-nav [role="radiogroup"] { gap: 10px; flex-wrap: wrap; }

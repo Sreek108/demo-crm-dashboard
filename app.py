@@ -91,6 +91,26 @@ st.markdown("""
         color: #0c4a6e;
     }
 
+    /* Hide Streamlit branding elements */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
+    /* Hide floating Streamlit logo/button */
+    .viewerBadge_container__1QSob,
+    .styles_viewerBadge__1yB5_,
+    .viewerBadge_link__1S137,
+    .viewerBadge_text__1JaDK,
+    .css-1jc7ptx, 
+    .e1ewe7hr3 {
+        display: none !important;
+    }
+    
+    /* Hide GitHub icon and other viewer badges */
+    #GithubIcon {
+        visibility: hidden;
+    }
+
     /* Sticky top navbar wrapper */
     .navbar-holder {
         position: sticky;
@@ -100,13 +120,13 @@ st.markdown("""
         z-index: 1000;
         background: #ffffff;
         padding: 6px 0 10px;
-        }
-
-    /* Add a bit more overall top padding so nothing feels cramped */
+    }
+    
+    /* Overall top padding - consolidated rule */
     .block-container {
         padding-top: 1.25rem !important;  /* ~20px; tune 1.0–1.5rem */
-        }
-
+    }
+    
     /* Make radio look like pill tabs */
     #pill-nav [role="radiogroup"] { gap: 10px; flex-wrap: wrap; }
     #pill-nav label { 
@@ -118,7 +138,7 @@ st.markdown("""
         color: #334155;
     }
     #pill-nav label:hover { background: #f8fafc; }
-
+    
     /* Selected state (BaseWeb renders aria-checked on the input's parent) */
     #pill-nav label[data-selected="true"], 
     #pill-nav input[type="radio"]:checked + div div { 
@@ -126,11 +146,8 @@ st.markdown("""
         color: #fff !important; 
         border-color: transparent;
     }
-
-    /* Reduce default top padding so bar sits near the top */
-    .block-container { padding-top: 0.5rem; }
-
-    /* “Current Section” banner */
+    
+    /* "Current Section" banner */
     .section-banner {
         background: linear-gradient(90deg, #6d28d9, #7c3aed);
         color: white;
@@ -142,6 +159,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 # Load AI insights
 @st.cache_data
